@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{FA1EF2EF-7DE3-9906-093B-7C7BD27F1195}") = "3D Mesh Prototype", "Assembly-CSharp.csproj", "{A869A38E-CE49-A975-A0CB-2D9B0F64F03B}"
 EndProject
+Project("{FA1EF2EF-7DE3-9906-093B-7C7BD27F1195}") = "3D Mesh Prototype", "Assembly-CSharp-Editor.csproj", "{EC86E808-8382-B60B-DD8E-2883358EBFED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{A869A38E-CE49-A975-A0CB-2D9B0F64F03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A869A38E-CE49-A975-A0CB-2D9B0F64F03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A869A38E-CE49-A975-A0CB-2D9B0F64F03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC86E808-8382-B60B-DD8E-2883358EBFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC86E808-8382-B60B-DD8E-2883358EBFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC86E808-8382-B60B-DD8E-2883358EBFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC86E808-8382-B60B-DD8E-2883358EBFED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
