@@ -1,0 +1,14 @@
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/UnityEngine.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/UnityEditor.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Vuforia.UnityExtensions.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Mono.Cecil.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Unity.DataContract.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/jeremychinsen/3D Mesh Prototype/Temp/bin/Debug/Mono.Cecil.Mdb.dll

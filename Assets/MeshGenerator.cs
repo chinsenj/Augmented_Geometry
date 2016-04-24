@@ -8,8 +8,12 @@ using System.Collections;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 
 public class MeshGenerator : MonoBehaviour {
-	[Range(10,200)]
-	public int resolution = 5;
+	[Range(10,100)]
+	public int resolution = 50;
+	public bool axesDisplayed = false;
+	public GameObject xAxis;
+	public GameObject yAxis;
+	public GameObject zAxis;
 	private int currentResolution;
 
 	private Vector3[] vertices;
@@ -34,7 +38,6 @@ public class MeshGenerator : MonoBehaviour {
 	public FunctionOption function;
 
 	void Start () {
-		//StartCoroutine(Generate ());
 		Generate();
 	}
 
@@ -47,10 +50,22 @@ public class MeshGenerator : MonoBehaviour {
 		int m = 0;
 		for (int x1 = 0;x1 <= resolution; x1++) {
 			for(int y = 0;y <= resolution; y++){
-				vertices[m].y = funcOption(vertices[m].x,vertices[m].z, t);
-				colors [m] = new Color (1.5f*vertices[m].x, 1.5f*vertices[m].z, 2f*vertices[m].y, 0f);
+				vertices[m].y = funcOption(vertices[m].x,vertices[m].z, t)+0.5f;
+				colors [m] = new Color (Mathf.Abs(1f*vertices[m].x),Mathf.Abs(1f*vertices[m].z), Mathf.Abs(1f*vertices[m].y), 0f);
 				m++;
 			}
+		}
+
+		if (axesDisplayed) {
+			xAxis.SetActive (true);
+			yAxis.SetActive (true);
+			zAxis.SetActive (true);
+
+		}
+		else {
+			xAxis.SetActive (false);
+			yAxis.SetActive (false);
+			zAxis.SetActive (false);
 		}
 
 		connectMesh ();
@@ -58,12 +73,12 @@ public class MeshGenerator : MonoBehaviour {
 
 	private Mesh mesh;
 
-	//private IEnumerator Generate(){
 	private void Generate(){
-		//WaitForSeconds wait = new WaitForSeconds(0.05f);
 		GetComponent<MeshFilter>().mesh = mesh = new Mesh();
 		mesh.name = "3D Mesh";
 
+		//ensure resolution is even for axis placement
+		resolution = resolution * 2;
 		currentResolution = resolution;
 		vertices = new Vector3[(resolution + 1) * (resolution + 1)];
 		colors = new Color[(resolution + 1) * (resolution + 1)];
@@ -71,12 +86,14 @@ public class MeshGenerator : MonoBehaviour {
 		float increment = 1f / (resolution - 1);
 		for (int x = 0; x <= resolution; x++) {
 			for (int z = 0; z <= resolution; z++) {
-				vertices [n] = new Vector3 (x*increment, 0, z*increment);
+				vertices [n] = new Vector3 (x*increment-0.5f, 0, z*increment-0.5f);
 				n++;
 			}
 		}
 		mesh.MarkDynamic();
 		connectMesh();
+
+
 	}
 
 	//since meshes only display one side depending on vertex indices, must go over 
@@ -103,20 +120,25 @@ public class MeshGenerator : MonoBehaviour {
 			}
 		}
 
+		LineRenderer xLine = xAxis.GetComponent<LineRenderer> ();
+		Vector3[] xPoints = new Vector3[2];
+		xPoints[0] = new Vector3(-1f, 0.5f, 0f);
+		xPoints[1] = new Vector3(1f, 0.5f, 0f);
+		xLine.SetPositions (xPoints);
+
+		LineRenderer yLine = yAxis.GetComponent<LineRenderer> ();
+		Vector3[] yPoints = new Vector3[2];
+		yPoints[0] = new Vector3(0f, 0.5f, 0f);
+		yPoints[1] = new Vector3(0f, 1.5f, 0f);
+		yLine.SetPositions (yPoints);
+
+		LineRenderer zLine = zAxis.GetComponent<LineRenderer> ();
+		Vector3[] zPoints = new Vector3[2];
+		zPoints[0] = new Vector3(0f, 0.5f, -1f);
+		zPoints[1] = new Vector3(0f, 0.5f, 1f);
+		zLine.SetPositions (zPoints);
 		mesh.triangles = triangles;
 	}
-
-	/*
-	private void OnDrawGizmos(){
-		if (vertices == null) {
-			return;
-		}
-		Gizmos.color = Color.black;
-		for (int i = 0; i < vertices.Length; i++) {
-			Gizmos.DrawSphere (vertices [i], 0.01f);
-		}
-	}
-	*/
 
 	private static float Linear (float x,float z, float t) {
 		return x;

@@ -62,6 +62,7 @@
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\StreamingAssets\QCAR\Target_Image1.xml" />
+     <None Include="Assets\StreamingAssets\QCAR\Test.xml" />
      <None Include="Assets\Shaders\UnityVC\UnityVC.cginc" />
      <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
      <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
