@@ -1,0 +1,3 @@
+This is an AR hack that also uses VR to visualize 3D mathematical equations. It uses the Vuforia APK and is made for the Google Cardboard. The hack was made in Unity and coded in C#. This is a more up to date version that uses a mesh rather than a particle system.
+
+To use this code, open the project in Unity. You can build it into an Android app to use on your phone or use a preview on Unity. However you must print the target image.
