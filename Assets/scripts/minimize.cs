@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 
 public class minimize : MonoBehaviour {
 
-	private bool minimized; 
+	public bool minimized; 
 	public GameObject targetPanel;
+    public GameObject ParametricEquations;
+    public GameObject genButton;
 	public Button minButton;
 	public Text buttonText;
 
@@ -22,12 +24,16 @@ public class minimize : MonoBehaviour {
 			minimized = false;
 			buttonText.text = "-";
 			targetPanel.SetActive (true);
+            ParametricEquations.SetActive(true);
+            genButton.SetActive(true);
 		} 
 		else {
 			minimized = true;
 			buttonText.text = "+";
 			targetPanel.SetActive(false);
-		}
+            ParametricEquations.SetActive(false);
+            genButton.SetActive(false);
+        }
 			
 	}
 }
