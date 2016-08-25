@@ -114,6 +114,7 @@
     <Compile Include="Assets\scripts\ExpressionParser.cs" />
     <Compile Include="Assets\scripts\MeshGenerator.cs" />
     <Compile Include="Assets\scripts\ResolutionSlider.cs" />
+    <Compile Include="Assets\scripts\SampleEquations.cs" />
     <Compile Include="Assets\scripts\UserInterface.cs" />
     <Compile Include="Assets\scripts\minimize.cs" />
   </ItemGroup>
