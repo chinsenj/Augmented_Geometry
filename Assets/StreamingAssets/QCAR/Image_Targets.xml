@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="Cube2.Back" size="6.000000 6.000000"/>
+        <ImageTarget name="Cube2.Bottom" size="6.000000 6.000000"/>
+        <ImageTarget name="Cube2.Left" size="6.000000 6.000000"/>
+        <ImageTarget name="Cube2.Front" size="6.000000 6.000000"/>
+        <ImageTarget name="Cube2.Right" size="6.000000 6.000000"/>
+        <ImageTarget name="Cube2.Top" size="6.000000 6.000000"/>
+        <MultiTarget name="Cube2">
+            <Part name="Cube2.Left" translation="-3.0 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Cube2.Right" translation="3.0 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Cube2.Front" translation="0 0 3.0" rotation="AD: 1 0 0 0"/>
+            <Part name="Cube2.Back" translation="0 0 -3.0" rotation="AD: 0 1 0 180"/>
+            <Part name="Cube2.Top" translation="0 3.0 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Cube2.Bottom" translation="0 -3.0 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
