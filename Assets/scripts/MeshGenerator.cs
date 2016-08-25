@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 using B83.ExpressionParser;
@@ -23,6 +24,17 @@ public class MeshGenerator : MonoBehaviour {
     private Expression X_rs;
     private Expression Y_rs;
     private Expression Z_rs;
+
+    public GameObject X_In;
+    public GameObject Y_In;
+    public GameObject Z_In;
+
+    public GameObject R_min;
+    public GameObject R_max;
+    public GameObject S_min;
+    public GameObject S_max;
+    public GameObject Resolution;
+
     public string x;
     public string y;
     public string z;
@@ -61,15 +73,16 @@ public class MeshGenerator : MonoBehaviour {
 
 	void Start () {
         parser = new ExpressionParser();
-		Generate();
+        currentResolution = resolution;
+		//Generate();
     }
 
 	void Update () {
-		if (currentResolution != resolution) {
-			Generate ();
-		}
+		//if (currentResolution != resolution) {
+		//	Generate ();
+		//}
 		//FunctionDelegate funcOption = functionDelegates [(int)function];
-		float t = Time.timeSinceLevelLoad;
+		//float t = Time.timeSinceLevelLoad;
 		//int m = 0;
 		//for (int x1 = 0;x1 <= resolution; x1++) {
 		//	for(int y = 0;y <= resolution; y++){
@@ -91,14 +104,27 @@ public class MeshGenerator : MonoBehaviour {
 			zAxis.SetActive (false);
 		}
 
-		connectMesh ();
+		//connectMesh ();
 	}
 
 	private Mesh mesh;
 
-	private void Generate(){
+	public void Generate(){
 		GetComponent<MeshFilter>().mesh = mesh = new Mesh();
 		mesh.name = "3D Mesh";
+
+        x = X_In.GetComponent<InputField>().text;
+        y = Y_In.GetComponent<InputField>().text;
+        z = Z_In.GetComponent<InputField>().text;
+
+        float temp = Resolution.GetComponent<Slider>().value;
+        resolution = (int)temp;
+        Debug.Log(resolution);
+
+        r_min = float.Parse(R_min.GetComponent<InputField>().text, System.Globalization.CultureInfo.InvariantCulture);
+        r_max = float.Parse(R_max.GetComponent<InputField>().text, System.Globalization.CultureInfo.InvariantCulture);
+        s_min = float.Parse(S_min.GetComponent<InputField>().text, System.Globalization.CultureInfo.InvariantCulture);
+        s_max = float.Parse(S_max.GetComponent<InputField>().text, System.Globalization.CultureInfo.InvariantCulture);
 
         X_rs = parser.EvaluateExpression(x);
         Y_rs = parser.EvaluateExpression(y);
@@ -107,8 +133,6 @@ public class MeshGenerator : MonoBehaviour {
         var f_x = X_rs.ToDelegate("r", "s");
         var f_y = Y_rs.ToDelegate("r", "s");
         var f_z = Z_rs.ToDelegate("r", "s");
-
-        Debug.Log(f_x(0, 1));
 
         float r_increment = (r_max - r_min) / resolution;
         float s_increment = (s_max - s_min) / resolution;
@@ -137,13 +161,13 @@ public class MeshGenerator : MonoBehaviour {
                 res_z = (float)f_z(r, s);
                 vertices[n] = new Vector3(
                     res_x,
-                    res_y,
-                    res_z
+                    res_z,
+                    res_y
                     );
                 colors[n] = new Color(
                     res_x,
-                    res_y,
                     res_z,
+                    res_y,
                     1f
                     );
                 n++;
@@ -191,22 +215,22 @@ public class MeshGenerator : MonoBehaviour {
 			}
 		}
 
-		LineRenderer xLine = xAxis.GetComponent<LineRenderer> ();
+        LineRenderer xLine = xAxis.GetComponent<LineRenderer> ();
 		Vector3[] xPoints = new Vector3[2];
-		xPoints[0] = new Vector3(-1f, 0.5f, 0f);
-		xPoints[1] = new Vector3(1f, 0.5f, 0f);
+		xPoints[0] = new Vector3(-2f, 0f, 0f);
+		xPoints[1] = new Vector3(2f, 0f, 0f);
 		xLine.SetPositions (xPoints);
 
 		LineRenderer yLine = yAxis.GetComponent<LineRenderer> ();
 		Vector3[] yPoints = new Vector3[2];
-		yPoints[0] = new Vector3(0f, 0.5f, 0f);
-		yPoints[1] = new Vector3(0f, 1.5f, 0f);
+		yPoints[0] = new Vector3(0f, -2f, 0f);
+		yPoints[1] = new Vector3(0f, 2f, 0f);
 		yLine.SetPositions (yPoints);
 
 		LineRenderer zLine = zAxis.GetComponent<LineRenderer> ();
 		Vector3[] zPoints = new Vector3[2];
-		zPoints[0] = new Vector3(0f, 0.5f, -1f);
-		zPoints[1] = new Vector3(0f, 0.5f, 1f);
+		zPoints[0] = new Vector3(0f, 0f, -2f);
+		zPoints[1] = new Vector3(0f, 0f, 2f);
 		zLine.SetPositions (zPoints);
 		mesh.triangles = triangles;
 	}
