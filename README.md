@@ -6,8 +6,6 @@ Created by [mshoe](https://github.com/mshoe), [groovy-tunes](https://github.com/
 
 AugmentedGeometry is a 3D Vector Function Visualizer. Graph Ellipsoids, parabloids, hyperboloids, and more. Coefficients can be set using the menu sliders, allowing for a large range of functions to be generated. Tools used: Google Cardboard, Unity 5, Vuforia.
 
-
-Demo Video: Coming Soon.
 ***
 To Run: Download either the [AugmentedGeometry_1.4.apk](https://github.com/WxnChen11/AugmentedR/blob/master/AugmentedGeometry_1.4.apk?raw=true) (Cardboard Compatible) or [AugmentedGeometry_Demo_1.4.apk](https://github.com/WxnChen11/AugmentedR/blob/master/AugmentedGeometry_Demo_1.4.apk?raw=true) (Non-Stereo) and install on any android phone. 
 >The Non-Stereo version is suitable for those without a Google Cardboard device. The Cardboard Compatible version should be used in conjunction with a Google Cardboard device and will provide a much more immersive experience.
